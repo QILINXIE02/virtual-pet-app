@@ -5,13 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
     energy: 50,
   };
 
+  const happinessEl = document.getElementById('happiness');
+  const hungerEl = document.getElementById('hunger');
+  const energyEl = document.getElementById('energy');
+
   const updatePetStats = () => {
-    document.getElementById('pet').innerHTML = `
-      <img src="pet-image.png" alt="Virtual Pet">
-      <p>Happiness: ${pet.happiness}</p>
-      <p>Hunger: ${pet.hunger}</p>
-      <p>Energy: ${pet.energy}</p>
-    `;
+    happinessEl.textContent = `Happiness: ${pet.happiness}`;
+    hungerEl.textContent = `Hunger: ${pet.hunger}`;
+    energyEl.textContent = `Energy: ${pet.energy}`;
   };
 
   const handleFeed = () => {
@@ -32,11 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
     updatePetStats();
   };
 
-  document.getElementById('controls').innerHTML = `
-    <button onclick="handleFeed()">Feed</button>
-    <button onclick="handlePlay()">Play</button>
-    <button onclick="handleRest()">Rest</button>
-  `;
+  document.getElementById('feed').addEventListener('click', handleFeed);
+  document.getElementById('play').addEventListener('click', handlePlay);
+  document.getElementById('rest').addEventListener('click', handleRest);
 
   updatePetStats();
 });

@@ -16,6 +16,10 @@ body {
   background: #fff;
 }
 
+#pet img {
+  width: 200px; /* Adjust as needed */
+}
+
 #controls button {
   margin: 10px;
   padding: 10px 20px;
