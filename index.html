@@ -9,6 +9,15 @@
 <body>
   <div id="app">
     <h1>Virtual Pet</h1>
+    <div id="pet-selection">
+      <label for="pet-type">Choose your pet:</label>
+      <select id="pet-type">
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+        <option value="dragon">Dragon</option>
+      </select>
+      <button id="choose-pet">Choose Pet</button>
+    </div>
     <div id="pet">
       <img src="pet-image.png" alt="Virtual Pet" id="pet-image">
       <p id="happiness">Happiness: 50</p>
@@ -19,6 +28,15 @@
       <button id="feed">Feed</button>
       <button id="play">Play</button>
       <button id="rest">Rest</button>
+    </div>
+    <div id="mini-games">
+      <h2>Mini-Games</h2>
+      <button id="math-quiz">Math Quiz</button>
+      <button id="vocabulary-game">Vocabulary Game</button>
+    </div>
+    <div id="share">
+      <h2>Share Your Pet</h2>
+      <button id="share-button">Share on Social Media</button>
     </div>
   </div>
   <script src="app.js"></script>

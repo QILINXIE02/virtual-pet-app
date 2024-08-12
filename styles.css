@@ -30,7 +30,7 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-#controls button {
+#controls button, #mini-games button, #share button {
   margin: 10px;
   padding: 10px 20px;
   font-size: 16px;
@@ -42,7 +42,7 @@ body {
   transition: background 0.3s;
 }
 
-#controls button:hover {
+#controls button:hover, #mini-games button:hover, #share button:hover {
   background: #555;
 }
 
