@@ -158,6 +158,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Social Sharing
   document.getElementById('share-button').addEventListener('click', () => {
-    showModal('Social Sharing', "Sharing your pet on social media!");
+    if (navigator.share) {
+      navigator.share({
+        title: 'Check out my virtual pet!',
+        text: `My pet is so happy with a happiness level of ${currentPet.happiness}!`,
+        url: window.location.href,
+      }).then(() => {
+        showModal('Shared!', 'Your pet was shared successfully!');
+      }).catch((error) => {
+        showModal('Sharing Failed', `Could not share: ${error}`);
+      });
+    } else {
+      // Fallback for browsers that don't support navigator.share
+      const shareUrl = `https://twitter.com/intent/tweet?text=Check out my virtual pet! Happiness level: ${currentPet.happiness} &url=${encodeURIComponent(window.location.href)}`;
+      window.open(shareUrl, '_blank');
+    }
   });
 });

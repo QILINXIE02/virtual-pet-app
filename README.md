@@ -13,8 +13,8 @@ A simple virtual pet application where users can interact and take care of their
 - **HTML**: Structure of the application.
 - **CSS**: Styling to make the app visually appealing.
 - **JavaScript**: Logic for handling user interactions and updating the pet's stats.
-day 1: ![alt text](day1.png)
+day 1: ![alt text](img/day1.png)
 
-day2: ![alt text](day2.png)
+day2: ![alt text](img/day2.png)
 
-day3P: ![alt text](day3.png), ![alt text](day3.2.png), ![alt text](day3.3.png), ![alt text](day3.4.png)
+day3P: ![alt text](img/day3.png), ![alt text](img/day3.2.png), ![alt text](img/day3.3.png), ![alt text](img/day3.4.png)
