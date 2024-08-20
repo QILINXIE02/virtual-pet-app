@@ -70,12 +70,32 @@ document.addEventListener('DOMContentLoaded', () => {
     showModal('Pet Selected', `You have selected a ${petType}!`);
   };
 
+  const initializeApp = () => {
+    const userName = prompt('Welcome! Please enter your name:');
+    if (userName) {
+      const petType = prompt('Choose a pet: Dog, Cat, or Dragon').toLowerCase();
+      if (pets[petType]) {
+        currentPet = pets[petType];
+        petImageEl.src = currentPet.image;
+        updatePetStats();
+        document.title = `${userName}'s Virtual Pet App`;
+        showModal('Welcome', `Hello, ${userName}! You have selected a ${petType}. Enjoy the app!`);
+      } else {
+        showModal('Error', 'Invalid pet type selected. Defaulting to Dog.');
+        document.title = `${userName}'s Virtual Pet App`;
+      }
+    } else {
+      showModal('Error', 'No name provided. Using default name.');
+    }
+  };
+
   document.getElementById('feed').addEventListener('click', handleFeed);
   document.getElementById('play').addEventListener('click', handlePlay);
   document.getElementById('rest').addEventListener('click', handleRest);
   document.getElementById('choose-pet').addEventListener('click', handlePetSelection);
 
   updatePetStats();
+  initializeApp();
 
   // Mini-Games
   document.getElementById('math-quiz').addEventListener('click', () => {

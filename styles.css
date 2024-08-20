@@ -189,15 +189,20 @@ body {
   font-size: 18px;
   border: none;
   border-radius: 30px;
+  background-color: #42a5f5;
   color: white;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#controls select:hover, #choose-pet:hover {
+  background-color: #1e88e5;
+  color: #fff;
 }
 
 #feed { background-color: #ff6f61; }
 #play { background-color: #ffb74d; }
 #rest { background-color: #4caf50; }
-#choose-pet { background-color: #42a5f5; }
 
 #story-mode, #mini-games, #pet-accessories {
   margin-top: 20px;
