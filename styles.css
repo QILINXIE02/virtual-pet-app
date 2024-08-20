@@ -80,17 +80,17 @@ body {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Fabulous Modals */
+/* Fabulous Modals */ 
 .modal {
-  display: none; 
-  position: fixed; 
-  z-index: 1000; 
+  display: none;
+  position: fixed;
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.7); 
+  background-color: rgba(0, 0, 0, 0.7);
   animation: modalFadeIn 0.5s ease-out;
 }
 
@@ -146,7 +146,7 @@ body {
 }
 
 .close {
-  color: #aaa;
+  color: #e52b2b;
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -180,4 +180,56 @@ body {
 
 #share-button:active {
   transform: translateY(2px);
+}
+
+/* New Styles */
+#controls select, #choose-pet {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#feed { background-color: #ff6f61; }
+#play { background-color: #ffb74d; }
+#rest { background-color: #4caf50; }
+#choose-pet { background-color: #42a5f5; }
+
+#story-mode, #mini-games, #pet-accessories {
+  margin-top: 20px;
+  padding: 20px;
+  background: #ffebcd;
+  border-radius: 15px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+#story-mode h2, #mini-games h2, #pet-accessories h2 {
+  margin-bottom: 10px;
+  color: #e91e63;
+}
+
+button.game-button, button.accessory-button, #share-button {
+  background-color: #bd87df;
+  color: rgb(0, 19, 129);
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.game-button:hover, button.accessory-button:hover, #share-button:hover {
+  background-color: #c200e4;
+}
+
+#adventure-output {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #333;
 }

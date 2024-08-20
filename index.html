@@ -8,55 +8,56 @@
 </head>
 <body>
   <div id="app">
+    <h1>Virtual Pet App</h1>
+
     <div id="pet">
-      <h1>My Virtual Pet</h1>
-      <img id="pet-image" src="dog.png" alt="Pet">
-      <div id="stats">
-        <p id="happiness">Happiness: 50</p>
-        <p id="hunger">Hunger: 50</p>
-        <p id="energy">Energy: 50</p>
-      </div>
-      <div id="controls">
-        <button id="feed">Feed</button>
-        <button id="play">Play</button>
-        <button id="rest">Rest</button>
-      </div>
-      <div>
-        <label for="pet-type">Choose Your Pet: </label>
-        <select id="pet-type">
-          <option value="dog">Dog</option>
-          <option value="cat">Cat</option>
-          <option value="dragon">Dragon</option>
-        </select>
-        <button id="choose-pet">Choose Pet</button>
-      </div>
+      <img id="pet-image" src="dog.png" alt="Your Pet">
+      <p id="happiness">Happiness: 50</p>
+      <p id="hunger">Hunger: 50</p>
+      <p id="energy">Energy: 50</p>
     </div>
 
-    <div id="share">
-      <h2>Share Your Pet</h2>
-      <button id="share-button">Share on Social Media</button>
+    <div id="controls">
+      <button id="feed">Feed</button>
+      <button id="play">Play</button>
+      <button id="rest">Rest</button>
+      <select id="pet-type">
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+        <option value="dragon">Dragon</option>
+      </select>
+      <button id="choose-pet">Choose Pet</button>
     </div>
 
-    <div id="mini-games">
-      <h2>Mini Games</h2>
-      <button id="math-quiz">Math Quiz</button>
-      <button id="vocabulary-game">Vocabulary Game</button>
-    </div>
-
-    <div id="adventure">
-      <h2>Adventure</h2>
+    <!-- Story Mode -->
+    <div id="story-mode">
+      <h2>Story Mode</h2>
       <button id="start-adventure">Start Adventure</button>
       <p id="adventure-output"></p>
     </div>
 
-    <div id="accessories">
-      <h2>Accessories</h2>
-      <button id="buy-hat">Buy Hat (10 Coins)</button>
-      <button id="buy-glasses">Buy Glasses (15 Coins)</button>
+    <!-- Mini-Games -->
+    <div id="mini-games">
+      <h2>Mini-Games</h2>
+      <button class="game-button" id="math-quiz">Math Quiz</button>
+      <button class="game-button" id="vocabulary-game">Vocabulary Game</button>
+    </div>
+
+    <!-- Pet Accessories -->
+    <div id="pet-accessories">
+      <h2>Pet Accessories</h2>
+      <button class="accessory-button" id="buy-hat">Buy Hat (10 Coins)</button>
+      <button class="accessory-button" id="buy-glasses">Buy Glasses (15 Coins)</button>
+    </div>
+
+    <!-- Social Sharing -->
+    <div>
+      <h2>Share Your Pet</h2>
+      <button id="share-button">Share</button>
     </div>
   </div>
 
-  <!-- Modal Structure -->
+  <!-- Modal -->
   <div id="modal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
