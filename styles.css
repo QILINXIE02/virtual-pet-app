@@ -1,3 +1,4 @@
+/* Base Styles */
 body {
   font-family: 'Arial', sans-serif;
   text-align: center;
@@ -6,6 +7,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 #app {
@@ -17,6 +19,7 @@ body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   animation: fadeIn 1s ease-out;
   position: relative;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 @keyframes fadeIn {
@@ -29,6 +32,8 @@ body {
     transform: translateY(0);
   }
 }
+
+
 
 #pet {
   margin: 20px 0;
@@ -189,20 +194,15 @@ body {
   font-size: 18px;
   border: none;
   border-radius: 30px;
-  background-color: #42a5f5;
   color: white;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-#controls select:hover, #choose-pet:hover {
-  background-color: #1e88e5;
-  color: #fff;
+  transition: background-color 0.3s ease;
 }
 
 #feed { background-color: #ff6f61; }
 #play { background-color: #ffb74d; }
 #rest { background-color: #4caf50; }
+#choose-pet { background-color: #42a5f5; }
 
 #story-mode, #mini-games, #pet-accessories {
   margin-top: 20px;
@@ -237,4 +237,62 @@ button.game-button:hover, button.accessory-button:hover, #share-button:hover {
   margin-top: 15px;
   font-weight: bold;
   color: #333;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background: linear-gradient(to right, #333, #555);
+  color: #ddd;
+}
+
+#app.dark-mode {
+  background: rgba(50, 50, 50, 0.9);
+}
+
+#pet.dark-mode {
+  background: #444;
+}
+
+#stats.dark-mode {
+  background: rgba(50, 50, 50, 0.7);
+}
+
+.modal-content.dark-mode {
+  background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%);
+  color: #ddd;
+}
+
+.modal-header.dark-mode {
+  color: #ddd;
+}
+
+.modal-body.dark-mode {
+  color: #ddd;
+}
+
+#controls button.dark-mode {
+  background: linear-gradient(135deg, #333, #555);
+  color: #ddd;
+}
+
+#controls button.dark-mode:hover {
+  background: linear-gradient(135deg, #555, #333);
+}
+
+#story-mode.dark-mode, #mini-games.dark-mode, #pet-accessories.dark-mode {
+  background: #333;
+}
+
+#story-mode h2.dark-mode, #mini-games h2.dark-mode, #pet-accessories h2.dark-mode {
+  color: #e91e63;
+}
+
+
+button.game-button.dark-mode, button.accessory-button.dark-mode, #share-button.dark-mode {
+  background-color: #3a3a3a;
+  color: #ddd;
+}
+
+button.game-button.dark-mode:hover, button.accessory-button.dark-mode:hover, #share-button.dark-mode:hover {
+  background-color: #2a2a2a;
 }

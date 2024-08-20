@@ -7,12 +7,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let currentPet = pets.dog;
   let coins = 100;
+  let userName = '';
 
   const petImageEl = document.getElementById('pet-image');
   const happinessEl = document.getElementById('happiness');
   const hungerEl = document.getElementById('hunger');
   const energyEl = document.getElementById('energy');
   const adventureOutputEl = document.getElementById('adventure-output');
+  const userNameEl = document.createElement('p');
+  userNameEl.id = 'user-name';
+  document.getElementById('app').insertBefore(userNameEl, document.getElementById('pet'));
 
   const updatePetStats = () => {
     happinessEl.textContent = `Happiness: ${currentPet.happiness}`;
@@ -71,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const initializeApp = () => {
-    const userName = prompt('Welcome! Please enter your name:');
+    userName = prompt('Welcome! Please enter your name:');
     if (userName) {
       const petType = prompt('Choose a pet: Dog, Cat, or Dragon').toLowerCase();
       if (pets[petType]) {
@@ -79,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         petImageEl.src = currentPet.image;
         updatePetStats();
         document.title = `${userName}'s Virtual Pet App`;
+        userNameEl.textContent = `Welcome, ${userName}!`;
         showModal('Welcome', `Hello, ${userName}! You have selected a ${petType}. Enjoy the app!`);
       } else {
         showModal('Error', 'Invalid pet type selected. Defaulting to Dog.');
@@ -94,13 +99,9 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('rest').addEventListener('click', handleRest);
   document.getElementById('choose-pet').addEventListener('click', handlePetSelection);
 
-  updatePetStats();
-  initializeApp();
-
-  // Mini-Games
   document.getElementById('math-quiz').addEventListener('click', () => {
-    const answer = prompt('What is 5 + 3?');
-    if (answer == '8') {
+    const answer = prompt('What is 2 + 2?');
+    if (answer === '4') {
       currentPet.happiness += 5;
       updatePetStats();
       showModal('Math Quiz', 'Correct! Pet is happier.');
@@ -110,8 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.getElementById('vocabulary-game').addEventListener('click', () => {
-    const answer = prompt('What is the synonym of "happy"?');
-    if (answer.toLowerCase() == 'joyful') {
+    const word = prompt('What is the opposite of "hot"?');
+    if (word.toLowerCase() === 'cold') {
       currentPet.happiness += 5;
       updatePetStats();
       showModal('Vocabulary Game', 'Correct! Pet is happier.');
@@ -120,78 +121,41 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Story Mode
   document.getElementById('start-adventure').addEventListener('click', () => {
-    const scenarios = [
-      {
-        story: "You encounter a river. Do you want to cross it or go around?",
-        options: ["Cross", "Go Around"],
-        outcomes: {
-          Cross: { text: "The river was shallow. You crossed easily.", happiness: 10, energy: -5 },
-          "Go Around": { text: "It took longer, but you stayed safe.", happiness: 5, energy: -10 },
-        },
-      },
-      {
-        story: "A wild animal appears! Do you want to fight or run?",
-        options: ["Fight", "Run"],
-        outcomes: {
-          Fight: { text: "You defeated the animal. Your pet is proud!", happiness: 15, energy: -20 },
-          Run: { text: "You escaped safely, but your pet is scared.", happiness: -5, energy: 10 },
-        },
-      },
-    ];
-
-    const scenario = scenarios[Math.floor(Math.random() * scenarios.length)];
-    const choice = prompt(`${scenario.story} (${scenario.options.join(" / ")})`);
-    const outcome = scenario.outcomes[choice];
-
-    if (outcome) {
-      adventureOutputEl.textContent = outcome.text;
-      currentPet.happiness = Math.min(100, currentPet.happiness + outcome.happiness);
-      currentPet.energy = Math.max(0, currentPet.energy + outcome.energy);
-      updatePetStats();
-      showModal('Adventure Result', outcome.text);
-    } else {
-      adventureOutputEl.textContent = "Invalid choice. The adventure ends.";
-      showModal('Adventure Result', "Invalid choice. The adventure ends.");
-    }
+    const adventures = ['Explored a magical forest!', 'Found a hidden treasure!', 'Met a friendly dragon!'];
+    const adventure = adventures[Math.floor(Math.random() * adventures.length)];
+    adventureOutputEl.textContent = `Adventure Result: ${adventure}`;
   });
 
-  // Pet Accessories
   document.getElementById('buy-hat').addEventListener('click', () => {
     if (coins >= 10) {
       coins -= 10;
-      showModal('Accessory Purchased', "Hat purchased! Your pet looks stylish.");
+      showModal('Purchase', 'You bought a hat!');
     } else {
-      showModal('Accessory Purchase Failed', "Not enough coins!");
+      showModal('Purchase', 'Not enough coins!');
     }
   });
 
   document.getElementById('buy-glasses').addEventListener('click', () => {
     if (coins >= 15) {
       coins -= 15;
-      showModal('Accessory Purchased', "Glasses purchased! Your pet looks cool.");
+      showModal('Purchase', 'You bought glasses!');
     } else {
-      showModal('Accessory Purchase Failed', "Not enough coins!");
+      showModal('Purchase', 'Not enough coins!');
     }
   });
 
-  // Social Sharing
   document.getElementById('share-button').addEventListener('click', () => {
-    if (navigator.share) {
-      navigator.share({
-        title: 'Check out my virtual pet!',
-        text: `My pet is so happy with a happiness level of ${currentPet.happiness}!`,
-        url: window.location.href,
-      }).then(() => {
-        showModal('Shared!', 'Your pet was shared successfully!');
-      }).catch((error) => {
-        showModal('Sharing Failed', `Could not share: ${error}`);
-      });
-    } else {
-      // Fallback for browsers that don't support navigator.share
-      const shareUrl = `https://twitter.com/intent/tweet?text=Check out my virtual pet! Happiness level: ${currentPet.happiness} &url=${encodeURIComponent(window.location.href)}`;
-      window.open(shareUrl, '_blank');
-    }
+    alert('Sharing your pet on social media!');
   });
+
+  // Dark mode toggle
+  const darkModeToggle = document.getElementById('dark-mode-toggle');
+  darkModeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? '🌕' : '🌙';
+  });
+
+  // Initialize app with user name and default pet selection
+  initializeApp();
 });
